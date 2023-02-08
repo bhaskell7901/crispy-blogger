@@ -5,26 +5,26 @@ const Comment = require('./Comment');
 
 // Account <> Blog relations
 Account.hasMany(Blog, {
-    foreigKey: "username_id"
+    foreigKey: "account_id"
 });
 
 Blog.belongsTo(Account, {
-    foreigKey: "username_id"
+    foreigKey: "account_id"
 });
 
 
 // Account <> Comment relations
 Account.hasMany(Comment, {
-    foreigKey: "username_id"
+    foreigKey: "account_id"
 });
 
 Comment.belongsTo(Account, {
-    foreigKey: "username_id"
+    foreigKey: "account_id"
 });
 
 
 // Blog <> Comment relations
-Comment.hasMany(Blog, {
+Comment.belongsTo(Blog, {
     foreigKey: "blog_id"
 });
 

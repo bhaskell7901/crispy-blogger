@@ -3,23 +3,23 @@ const { Account } = require('../models');
 const accountData = [
   {
     username: 'bhaskell',
-    passwor: 'password'
+    password: 'password'
   },
   {
     username: 'randy',
-    passwor: 'password'
+    password: 'password1'
   },
   {
     username: 'shirleystumpkins',
-    passwor: 'password'
+    password: 'password2'
   },
   {
     username: 'user23910',
-    passwor: 'password'
+    password: 'password3'
   },
   {
     username: 'happyGmore',
-    passwor: 'password'
+    password: 'password4'
   }
 ];
 

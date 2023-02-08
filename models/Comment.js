@@ -11,7 +11,7 @@ Comment.init(
             allowNull: false,
             primaryKey: true
         },
-        username_id: {
+        account_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
