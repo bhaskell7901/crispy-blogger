@@ -28,6 +28,9 @@ const blogData = [
   }
 ];
 
-const seedBlog = () => Blog.bulkCreate(blogData);
+const seedBlog = () => Blog.bulkCreate(blogData, {
+  individualHooks: true,
+  returning: true
+});
 
 module.exports = seedBlog;
