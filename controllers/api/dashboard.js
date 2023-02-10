@@ -37,4 +37,26 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json();
     
 });
+
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.update({
+                title: req.body.title,
+                message: req.body.message
+        },
+        {
+            where: { id: req.params.id }
+        });
+        res.status(200).json(blogData);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
+    res.status(200).json();
+    
+});
+
+
+
 module.exports = router;
