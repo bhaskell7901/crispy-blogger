@@ -30,7 +30,7 @@ router.get('/login', (req, res) => {
 });
 
 // Login post
-router.post('/login', async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
     const accountData = await Account.findOne({ where: { username: req.body.username } });
 
@@ -110,14 +110,13 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
       req.session.destroy(() => {
-          res.status(204).end();
+        res.redirect('/');
       });
-  } else {
-      res.status.apply(404).end();
   }
+  res.status.apply(404).end();
 });
 
 module.exports = router;
