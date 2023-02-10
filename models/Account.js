@@ -31,7 +31,6 @@ Account.init(
             beforeCreate: async (newUser) => {
                 const salt = 12;
                 newUser.password = await bcrypt.hash(newUser.password, salt);
-                console.log(newUser.password);
                 return newUser;
             },
         },

@@ -1,5 +1,13 @@
 const router = require('express').Router();
 const { Account, Blog, Comment } = require('../models');
+const withAuth = require('../utils/auth');
+
+// Home page
+router.get('/', withAuth, (req, res) => {
+  res.render('homepage', {
+    loggedIn: req.session.loggedIn
+  });
+});
 
 
 // Login page
@@ -79,6 +87,25 @@ router.post('/create', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// Login page
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      });
+  } else {
+      res.status.apply(404).end();
   }
 });
 
