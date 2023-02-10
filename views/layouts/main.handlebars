@@ -5,10 +5,30 @@
   <title>Cripy Blogger</title>
   <link rel="stylesheet" type="text/css" href="/css/reset.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
+  <header>
+    <nav>
+      <div>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        {{/if}}
+      </div>
+      <div>
+        {{#if loggedIn}}
+        <a href="/logout">Logout</a>
+        {{else }}    
+        <a href="/create">Sign Up</a>
+        <a href="/login">Login</a>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
+    
+    {{!-- <header class="display-flex justify-space-between align-center p-2">
     <h1>
       Crispy Blogger
     </h1>
@@ -19,7 +39,7 @@
       <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
-  </header>
+  </header> --}}
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
@@ -32,7 +52,7 @@
   <script src="/js/logout.js"></script>
   {{/if}}
   <footer>
-    <p>Copyright © 2023 My Blog</p>
+    <p>Copyright © 2023 Cripsy Blogger</p>
   </footer>
 </body>
 
