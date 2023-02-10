@@ -23,6 +23,9 @@ const accountData = [
   }
 ];
 
-const seedAccounts = () => Account.bulkCreate(accountData);
+const seedAccounts = () => Account.bulkCreate(accountData, {
+  individualHooks: true,
+  returning: true
+});
 
 module.exports = seedAccounts;
