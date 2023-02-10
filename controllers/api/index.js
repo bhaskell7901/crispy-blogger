@@ -6,6 +6,6 @@ const comment = require('./comment');
 
 // router.use('/blog', blog);
 router.use('/dashboard', dashboard);
-// router.use('/comment', comment);
+router.use('/comment', comment);
 
 module.exports = router;
