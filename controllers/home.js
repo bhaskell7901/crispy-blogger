@@ -9,7 +9,6 @@ router.get('/', withAuth, async (req, res) => {
         include: [{ model: Account }, { model: Comment , include: [{ model: Account }] }]
     });
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    // res.status(200).json(blogs);
     res.render('homepage', {
       blogs,
       loggedIn: req.session.loggedIn
@@ -30,7 +29,7 @@ router.get('/login', (req, res) => {
 });
 
 // Login post
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const accountData = await Account.findOne({ where: { username: req.body.username } });
 
@@ -110,13 +109,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
       req.session.destroy(() => {
-        res.redirect('/');
+        res.redirect('/login');
       });
+  } else {
+    res.status.apply(404).end();
   }
-  res.status.apply(404).end();
 });
 
 module.exports = router;
