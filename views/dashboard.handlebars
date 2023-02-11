@@ -1,9 +1,14 @@
 <h2>Your Dashboard</h2>
 {{#each blogs as |blog| }}
-    {{> blogs-details }}
-    {{#each comments as |comment| }}
-      {{> comments-details }}
-    {{/each }}
+  {{> blogs-details }}
+    <div class="comments-section">
+    {{!-- <h4>Comments:</h4> --}}
+      {{#each comments as |comment| }}
+        {{#if comment }}
+          {{> comments-details }}
+        {{/if }}
+      {{/each }}
+    </div>
 {{/each }}
 <!-- Modal -->
 <div id="new-blog-modal" class="modal">
