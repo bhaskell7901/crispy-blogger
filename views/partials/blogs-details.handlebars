@@ -5,7 +5,6 @@
         <p>{{message}}</p>
     </div>
     <div class="signature">
-        <p>{{account.username}} - {{createdAt}}</p>
-        <p></p>
+        <p>{{account.username}} - {{format_date createdAt}} {{format_time createdAt}}
     </div>
 </div>

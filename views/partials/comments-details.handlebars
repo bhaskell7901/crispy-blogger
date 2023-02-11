@@ -1,9 +1,10 @@
 <div class="comments-section">
     <h4>Comments:</h4>
     <div class="comment">
-        <p class="username">{{account.username}}</p>
         <p class="text">{{message}}</p>
-        <p class="date">Date: {{format_date createdAt}} {{format_time createdAt}}</p>
+        <div class="signature">
+            <p>{{account.username}} - {{format_date createdAt}} {{format_time createdAt}}</p>
+        </div>
     </div>
 </div>
       
