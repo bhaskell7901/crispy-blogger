@@ -2,8 +2,6 @@
   --primary-color: rgb(78, 141, 161);
   --secondary-color: white;
   --tertiary-color: lightblue;
-  
-  
 }
 
 body {
@@ -42,6 +40,10 @@ nav a {
 
 main {
   padding: 20px;
+}
+
+p {
+  margin: 2px;
 }
 
 .posts {
