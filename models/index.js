@@ -26,12 +26,14 @@ Comment.belongsTo(Account, {
 // Blog <> Comment relations
 Comment.belongsTo(Blog, {
     foreigKey: "blog_id",
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
+    hooks: true
 });
 
 Blog.hasMany(Comment, {
     foreigKey: "blog_id",
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
+    hooks: true
 });
 
 module.exports = {
