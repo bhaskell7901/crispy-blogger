@@ -7,13 +7,13 @@ const newBlogTitleInput = document.getElementById('new-title-input');
 const newMessageInput = document.getElementById('new-message-input');
 
 const editBlogModal = document.getElementById("edit-blog-modal");
-const openEditBlogBtn = document.getElementById("open-edit-blog-modal-btn");
 const submitEditBlogBtn = document.getElementById('submit-edit-modal-btn');
 const closeEditBlogBtn = document.getElementById("close-edit-modal-btn");
 const editBlogTitleInput = document.getElementById('edit-title-input');
 const editMessageInput = document.getElementById('edit-message-input');
 
-const editButtons = document.querySelectorAll(".blog-post");
+const editButtons = document.querySelectorAll(".edit-button");
+const deleteButtons = document.querySelectorAll(".delete-button");
 
 // New modal functions
 openNewBlogBtn.onclick = function() {
@@ -46,6 +46,8 @@ submitNewBlogBtn.addEventListener('click', async () => {
       })
     });
     if (response.ok) {
+      newBlogTitleInput.value = "";
+      newMessageInput.value = "";
       newBlogModal.style.display = "none";
       window.location.reload();
     }
@@ -101,10 +103,41 @@ submitEditBlogBtn.addEventListener('click', async () => {
       })
     });
     if (response.ok) {
+      editBlogTitleInput.value = "";
+      editMessageInput.value = "";
+      document.getElementById("blog-id").textContent = "";
       editBlogModal.style.display = "none";
       window.location.reload();
     }
   } catch (error) {
     console.error(error);
   }
+});
+
+// Delete blog functions
+deleteButtons.forEach(button => {
+  button.addEventListener('click', async (event) => {
+    const id = event.target.closest(".blog-post").id;
+    
+    var confirm = window.confirm("Your blog and all comments will be deleted. This cannot be undone.\nAre you sure you want to delete?");
+    if( confirm ){
+      try {
+        const response = await fetch("/api/blog/" + id, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id
+          })
+        });
+        if (response.ok) {
+          editBlogModal.style.display = "none";
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  });
 });

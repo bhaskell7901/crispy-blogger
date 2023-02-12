@@ -1,6 +1,8 @@
+  <div class="header">
   <h2>Recent Posts</h2>
+</div>
   {{#each blogs as |blog| }}
-  {{> blogs-details }}
+  {{> blogs-details isDashboard=false }}
     <div class="comments-section">
       {{#each comments as |comment| }}
         {{#if comment }}
@@ -9,3 +11,17 @@
       {{/each }}
     </div>
 {{/each }}
+
+<!-- Create New Comment Modal Content -->
+<div id="comment-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-comment-modal-btn" class="close-modal-btn">&times;</span>
+    <h2>Add Comment <span id="blog-id" class="blog-id"></span></h2>
+    <div class="input-container">
+      <label for="comment-message-input">Comment:</label>
+      <textarea id="comment-message-input"></textarea>
+    </div>
+    <button id="submit-comment-modal-btn" class="create-button">Submit</button>
+  </div>
+</div>
+<script src="/js/homepage.js"></script>
