@@ -1,6 +1,9 @@
 :root {
-  --primary-color: lightblue;
+  --primary-color: rgb(78, 141, 161);
   --secondary-color: white;
+  --tertiary-color: lightblue;
+  
+  
 }
 
 body {
@@ -51,7 +54,7 @@ main {
 .blog-title {
   font-size: 150%;
   padding: 10px;
-  background-color: blue;
+  background-color: var(--tertiary-color);
   color: white;
 }
 
@@ -63,6 +66,7 @@ main {
 .comment {
   border: 1px solid grey;
   padding: 5px;
+  font-size: 80%;
 }
 
 .username {

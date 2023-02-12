@@ -25,7 +25,6 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.create({
                 account_id: req.session.userId,
-                blog_id: req.body.blog_id,
                 title: req.body.title,
                 message: req.body.message
         });
