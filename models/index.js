@@ -25,7 +25,8 @@ Comment.belongsTo(Account, {
 
 // Blog <> Comment relations
 Comment.belongsTo(Blog, {
-    foreigKey: "blog_id"
+    foreigKey: "blog_id",
+    onDelete: "CASCADE"
 });
 
 Blog.hasMany(Comment, {
