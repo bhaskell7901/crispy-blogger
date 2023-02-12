@@ -1,8 +1,10 @@
-<h2>Your Dashboard</h2>
+<div class="dashboard-header">
+  <h2>Your Dashboard</h2>
+  <button class="create-button">Create New</button>
+</div>
 {{#each blogs as |blog| }}
-  {{> blogs-details }}
+  {{> blogs-details isDashboard=true }}
     <div class="comments-section">
-    {{!-- <h4>Comments:</h4> --}}
       {{#each comments as |comment| }}
         {{#if comment }}
           {{> comments-details }}

@@ -1,4 +1,11 @@
   <h2>Recent Posts</h2>
   {{#each blogs as |blog| }}
-    {{> blogs-details }}
-  {{/each }}
+  {{> blogs-details }}
+    <div class="comments-section">
+      {{#each comments as |comment| }}
+        {{#if comment }}
+          {{> comments-details }}
+        {{/if }}
+      {{/each }}
+    </div>
+{{/each }}

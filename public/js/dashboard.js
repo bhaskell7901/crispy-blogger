@@ -1,6 +1,3 @@
-
-
-
 // Get modal elements
 var modal = document.getElementById("new-blog-modal");
 var btn = document.getElementById("openModalBtn");

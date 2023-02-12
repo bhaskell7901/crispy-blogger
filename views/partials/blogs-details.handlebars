@@ -1,7 +1,11 @@
 
-<div class="post">
-    <div>
-        <h3>{{title}}</h3>
+<div class="posts">
+    <div class="blog-post">
+        {{#if isDashboard }}
+            <button class="delete-button">Delete</button>
+            <button class="edit-button">Edit</button>
+        {{/if }}
+        <h3 class="blog-title">{{title}}</h3>
         <p>{{message}}</p>
     </div>
     <div class="signature">
