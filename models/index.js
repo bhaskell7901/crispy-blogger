@@ -30,7 +30,8 @@ Comment.belongsTo(Blog, {
 });
 
 Blog.hasMany(Comment, {
-    foreigKey: "blog_id"
+    foreigKey: "blog_id",
+    onDelete: "CASCADE"
 });
 
 module.exports = {
