@@ -1,0 +1,20 @@
+<h3>Your Dashboard</h3>
+{{#each blogs as |blog| }}
+    {{> blogs-details }}
+{{/each }}
+<!-- Modal -->
+<div id="new-blog-modal" class="modal">
+  <!-- Modal Content -->
+  <div class="modal-content">
+    <span class="closeBtn">&times;</span>
+    <h2>Add New</h2>
+    <div class="input-container">
+      <label for="titleInput">Title:</label>
+      <input type="text" id="titleInput" placeholder="Enter title here">
+    </div>
+    <div class="input-container">
+      <label for="messageInput">Message:</label>
+      <textarea id="messageInput" placeholder="Enter message here"></textarea>
+    </div>
+  </div>
+</div>

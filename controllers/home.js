@@ -92,7 +92,8 @@ router.post('/create', async (req, res) => {
       req.session.userId = accountData.id;
       req.session.loggedIn = true;
       
-      res.json({ user: accountData.username, message: 'You are now logged in!' });
+      res.redirect('/');
+      // res.json({ user: accountData.username, message: 'logged in' });
     });
 
   } catch (err) {
@@ -109,7 +110,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
       req.session.destroy(() => {
           res.status(204).end();
