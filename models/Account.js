@@ -29,15 +29,13 @@ Account.init(
     {
         hooks: {
             beforeCreate: async (newUser) => {
-                const salt = 12;
-                newUser.password = await bcrypt.hash(newUser.password, salt);
+                newUser.password = await bcrypt.hash(newUser.password, 12);
                 return newUser;
             },
-        },
-        instanceMethods: {
-            validPassword: async function(password) {
-                return await bcrypt.compare(password, this.password);
-            }
+            beforeUpdate: async (updateUser) => {
+                updateUser.password = await bcrypt.hash(updateUser.password, 12);
+                return updateUser;
+            },
         },
         sequelize,
         underscored: true,

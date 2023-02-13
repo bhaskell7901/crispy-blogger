@@ -2,7 +2,7 @@
 
 Welcome to Cripsy Blogger, where Blogs are so hot they're cripsy! This is a mock blogging site to post blogs and comments.
 
-See the [Deployed Site](https://bhaskell7901.github.io/quiz-time/)
+See the [Deployed Site](https://protected-peak-75137.herokuapp.com/)
 
 
 ## Table of Contents
@@ -49,7 +49,7 @@ The Cripsy Blogger allows users to post blogs, make comments, or edit their own 
 
 ## Usage
 
-To use Cripsy Blogger, just navigate to the [Live Site](https://bhaskell7901.github.io/quiz-time/).  Once the page loads, create an account or login.  then post a blog.
+To use Cripsy Blogger, just navigate to the [Live Site](https://protected-peak-75137.herokuapp.com/).  Once the page loads, create an account or login.  then post a blog.
 
 
 ## Learning Points 

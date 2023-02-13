@@ -18,7 +18,7 @@ const currentSession = {
   cookie: {},
   resave: false,
   saveUninitialized: false,
-  maxAge: 30000,
+  SameSite: "Strict",
   store: new SequelizeStore({
     db: sequelize
   })

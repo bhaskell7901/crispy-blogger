@@ -9,7 +9,6 @@ router.get('/', withAuth, async (req, res) => {
         include: [{ model: Account }, { model: Comment , include: [{ model: Account }] }]
     });
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    // res.status(200).json(blogs);
     res.render('homepage', {
       blogs,
       loggedIn: req.session.loggedIn
@@ -113,10 +112,10 @@ router.get('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
       req.session.destroy(() => {
-          res.status(204).end();
+        res.redirect('/login');
       });
   } else {
-      res.status.apply(404).end();
+    res.status.apply(404).end();
   }
 });
 

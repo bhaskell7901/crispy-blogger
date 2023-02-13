@@ -1,20 +1,50 @@
-<h3>Your Dashboard</h3>
+<div class="header">
+  <h2>Your Dashboard</h2>
+  <button id="open-new-blog-modal-btn" class="create-button">Create New</button>
+</div>
 {{#each blogs as |blog| }}
-    {{> blogs-details }}
+  {{> blogs-details isDashboard=true }}
+    <div class="comments-section">
+      {{#each comments as |comment| }}
+        {{#if comment }}
+          {{> comments-details }}
+        {{/if }}
+      {{/each }}
+    </div>
 {{/each }}
-<!-- Modal -->
+
+<!-- Create New Modal Content -->
 <div id="new-blog-modal" class="modal">
-  <!-- Modal Content -->
   <div class="modal-content">
-    <span class="closeBtn">&times;</span>
-    <h2>Add New</h2>
+    <span id="close-new-modal-btn" class="close-modal-btn">&times;</span>
+    <h2>Add New Blog</h2>
     <div class="input-container">
-      <label for="titleInput">Title:</label>
-      <input type="text" id="titleInput" placeholder="Enter title here">
+      <label for="new-title-input">Title:</label>
+      <input type="text" id="new-title-input" placeholder="Enter title here">
     </div>
     <div class="input-container">
-      <label for="messageInput">Message:</label>
-      <textarea id="messageInput" placeholder="Enter message here"></textarea>
+      <label for="new-message-input">Message:</label>
+      <textarea id="new-message-input" placeholder="Enter message here"></textarea>
     </div>
+    <button id="submit-new-modal-btn" class="create-button">Submit</button>
   </div>
 </div>
+
+<!-- Edit Modal Content -->
+<div id="edit-blog-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-edit-modal-btn" class="close-modal-btn">&times;</span>
+    <h2>Edit Blog <span id="blog-id" class="blog-id"></span></h2>
+    <div class="input-container">
+      <label for="edit-title-input">Title:</label>
+      <input type="text" id="edit-title-input">
+    </div>
+    <div class="input-container">
+      <label for="edit-message-input">Message:</label>
+      <textarea id="edit-message-input"></textarea>
+    </div>
+    <button id="submit-edit-modal-btn" class="create-button">Submit</button>
+  </div>
+</div>
+
+<script src="/js/dashboard.js"></script>

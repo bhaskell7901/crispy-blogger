@@ -2,10 +2,15 @@ const router = require('express').Router();
 const { Account, Blog, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Dashboard page
 router.get('/', withAuth, async (req, res) => {
     try {
+        console.log(req.session.userId);
         const blogData = await Blog.findAll({
-            include: [{ model: Account }, { model: Comment , include: [{ model: Account }] }],
+            include: [{ model: Account }, 
+                { model: Comment, 
+                    include: [{ model: Account }],
+                }],
             where: {
                 account_id: req.session.userId
             }
@@ -15,14 +20,10 @@ router.get('/', withAuth, async (req, res) => {
             blogs,
             loggedIn: req.session.loggedIn
           });
-        // res.status(200).json(blogs);
 
     } catch (err) {
         res.status(500).json(err);
     }
-    
-    res.status(200).json();
-    
 });
 
 router.post('/', withAuth, async (req, res) => {

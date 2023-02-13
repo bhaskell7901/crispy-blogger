@@ -1,11 +1,16 @@
 
-<div class="post">
-    <div>
-        <h3>{{title}}</h3>
+<div class="posts">
+    <div id={{id}} class="blog-post">
+        {{#if isDashboard }}
+            <button class="delete-button">Delete</button>
+            <button class="edit-button">Edit</button>
+        {{else }}
+            <button class="comment-button">Comment</button>
+        {{/if }}
+        <h3 class="blog-title">{{title}}</h3>
         <p>{{message}}</p>
     </div>
     <div class="signature">
-        <p>{{account.username}} - {{createdAt}}</p>
-        <p></p>
+        <p>{{account.username}} - {{format_date createdAt}} {{format_time createdAt}}
     </div>
 </div>
